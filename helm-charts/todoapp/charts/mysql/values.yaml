@@ -1,0 +1,21 @@
+namespace: mysql
+
+replicas: 1
+image:
+  repo: mysql
+  tag: "8.0"
+port: 3306
+
+secrets:
+  MYSQL_ROOT_PASSWORD: placeholder
+  MYSQL_USER: placeholder
+  MYSQL_PASSWORD: placeholder
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 1Gi
+    storage: 1Gi
+  limits:
+    cpu: 200m
+    memory: 1Gi

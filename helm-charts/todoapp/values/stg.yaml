@@ -1,0 +1,30 @@
+mysql:
+  namespace: mysql-staging
+
+todoapp:
+  namespace: todoapp-staging
+  image:
+    repository: fredisson11/todoapp
+    tag: placeholder
+
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "150m"
+    limits:
+      memory: "256Mi"
+      cpu: "150m"
+
+  hpa:
+    minReplicas: 2
+    maxReplicas: 5
+    cpu:
+      avarageUtilization: 70
+    memory:
+      avarageUtilization: 70
+
+  volumes:
+    persistentVolume:
+      capacity: "1Gi"
+    persistentVolumeClaim:
+      requestStorage: "1Gi"
