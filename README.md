@@ -20,8 +20,7 @@ TodoApp — production-like task management API (Django) with a complete DevOps 
 ```
 .
 ├── .github/workflows     # CI/CD reusable workflows
-├── bootstrap.sh          # local / bootstrap helpers
-├── cluster.yml           # cluster manifest / documentation
+├── cluster.yml           # cluster manifest
 ├── helm-charts/todoapp   # Helm chart for the application
 ├── src/                  # Django application
 │   ├── Dockerfile
@@ -73,7 +72,6 @@ TodoApp — production-like task management API (Django) with a complete DevOps 
 - `TODOAPP_SECRET_KEY`  
 
 > Secrets are **never committed**. CI/CD injects them into Helm via `--set` (or `kubectl create secret`) as part of the workflow.  
-> For full reference see `docs/secrets.md`.
 
 ---
 
@@ -84,8 +82,6 @@ TodoApp — production-like task management API (Django) with a complete DevOps 
 2. **build** — Docker image build  
 3. **push** — Login to Docker Hub and push image  
 4. **deploy** — Helm upgrade/install to AKS using environment-specific values and secrets  
-
-> Full workflow files are in `.github/workflows/` or see `docs/ci-cd.md`.
 
 ---
 
